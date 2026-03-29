@@ -1,0 +1,87 @@
+/* ==========================================================================
+   index.css – Globale Basis-Styles
+   Browser-Reset und gemeinsame Grundstyles für die gesamte App.
+   ========================================================================== */
+
+/* ---------- Base Reset ---------- */
+/* box-sizing: border-box auf alle Elemente → padding zählt zur Breite */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Vollhöhe auf html, body und #root damit die App den ganzen Viewport füllt */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* ---------- Typografie ---------- */
+body {
+  /* System-UI-Stack: nimmt die native Schrift des Betriebssystems */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #111;
+  background: #f4f6f8;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;   /* macOS / iOS: schärfere Schrift */
+  -moz-osx-font-smoothing: grayscale;    /* Firefox macOS */
+}
+
+/* ---------- Links ---------- */
+a {
+  color: #1f4fd6;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Überschriften & Absätze ---------- */
+/* Standard-Browser-Margin entfernen – Abstände werden per Inline-Style gesetzt */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* ---------- Eingabefelder ---------- */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #fff;
+  font-size: 14px;
+  outline: none; /* Fokus-Ring wird per box-shadow ersetzt (unten) */
+}
+
+/* Blauer Fokus-Ring als Barrierefreiheits-Hinweis */
+input:focus {
+  border-color: rgba(31, 79, 214, 0.65);
+  box-shadow: 0 0 0 4px rgba(31, 79, 214, 0.12);
+}
+
+/* ---------- Buttons ---------- */
+/* Basis-Reset – konkrete Styles kommen aus styles.ts */
+button {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Deaktivierter Zustand: Cursor und Transparenz */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

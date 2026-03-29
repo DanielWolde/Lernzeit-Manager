@@ -1,0 +1,32 @@
+flowchart TD
+    A(["Nutzer öffnet App"])
+
+    A --> B{"Eingeloggt?"}
+    B -->|"Nein"| C["LoginPage\nEmail + Passwort"]
+    C -->|"signIn()"| FB_AUTH["Firebase Auth"]
+    FB_AUTH -->|"User-Objekt"| D
+
+    B -->|"Ja"| D["Home laden"]
+    D --> E["Firestore\nZiele · Sessions · Pläne\nparallel laden"]
+    E --> F["Anzeige aktualisieren"]
+
+    F --> G(["Nutzer startet Timer"])
+    G --> LS["localStorage\nStartzeit speichern"]
+    LS --> H(["Nutzer stoppt Timer"])
+    H --> FS1["Firestore\nsaveSession()"]
+    FS1 --> F
+
+    F --> I(["Neues Ziel anlegen"])
+    I --> FS2["Firestore\ncreateGoal()"]
+    FS2 --> F
+
+    F --> J(["Monatsplan speichern"])
+    J --> FS3["Firestore\nsaveMonthlyPlan()"]
+    FS3 --> F
+
+    style FB_AUTH fill:#fef9c3,stroke:#ca8a04
+    style LS fill:#f3e8ff,stroke:#9333ea
+    style FS1 fill:#dbeafe,stroke:#3b82f6
+    style FS2 fill:#dbeafe,stroke:#3b82f6
+    style FS3 fill:#dbeafe,stroke:#3b82f6
+    style F fill:#dcfce7,stroke:#16a34a

@@ -1,0 +1,25 @@
+flowchart LR
+    main["main.tsx"] --> App["App.tsx"]
+
+    App --> fbts["firebase.ts"]
+    App --> Login["LoginPage.tsx"]
+    App --> Home["Home.tsx"]
+
+    Login --> fbts
+    Login --> styles["styles.ts"]
+
+    Home --> fbts
+    Home --> goals["goals.ts"]
+    Home --> sessions["learningSessions.ts"]
+    Home --> plans["monthlyPlans.ts"]
+    Home --> styles
+
+    goals --> fbts
+    sessions --> fbts
+    plans --> fbts
+
+    fbts --> SDK["Firebase SDK"]
+
+    style fbts fill:#fef9c3,stroke:#ca8a04
+    style SDK fill:#dcfce7,stroke:#16a34a
+    style Home fill:#fef3c7,stroke:#d97706

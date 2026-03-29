@@ -1,0 +1,21 @@
+flowchart TD
+    ROOT["📁 frontend/"]
+
+    ROOT --> CFG["⚙️ Konfiguration\n.env.local · package.json\nvite.config.ts · index.html"]
+    ROOT --> SRC["📁 src/"]
+    ROOT --> DOCS["📁 docs/"]
+
+    SRC --> ENTRY["🚀 Einstieg\nmain.tsx · App.tsx"]
+    SRC --> PAGES["📄 Seiten\nHome.tsx · LoginPage.tsx"]
+    SRC --> SERVICES["📁 services/\nfirebase.ts · goals.ts\nlearningSessions.ts\nmonthlyPlans.ts"]
+    SRC --> UI["🎨 Styles\nstyles.ts · index.css"]
+
+    DOCS --> D1["📝 Dokumentation\nD3 · D4 · DOKUMENTATION.md"]
+    DOCS --> D2["📊 Diagramme\ndiagramme/*.mmd"]
+
+    style ROOT fill:#dbeafe,stroke:#3b82f6,font-weight:bold
+    style SRC fill:#dbeafe,stroke:#3b82f6
+    style DOCS fill:#dcfce7,stroke:#16a34a
+    style SERVICES fill:#fef9c3,stroke:#ca8a04
+    style PAGES fill:#fef3c7,stroke:#d97706
+    style ENTRY fill:#f3e8ff,stroke:#9333ea

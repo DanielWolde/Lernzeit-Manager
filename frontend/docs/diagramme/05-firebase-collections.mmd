@@ -1,0 +1,23 @@
+flowchart TD
+    USER["👤 User\nuid · email"]
+
+    USER --> GOALS
+    USER --> SESS
+    USER --> PLANS
+
+    subgraph GOALS["goals"]
+        G1["title · isDone\ncategory · priority\ndueDate · isArchived"]
+    end
+
+    subgraph SESS["learningSessions"]
+        S1["startedAt · endedAt\ndurationSeconds · category"]
+    end
+
+    subgraph PLANS["monthlyPlans"]
+        P1["month (YYYY-MM)\nplannedHours"]
+    end
+
+    style USER fill:#fef3c7,stroke:#d97706,font-weight:bold
+    style GOALS fill:#e8f5e9,stroke:#388e3c
+    style SESS fill:#dbeafe,stroke:#1565c0
+    style PLANS fill:#fce4ec,stroke:#c62828

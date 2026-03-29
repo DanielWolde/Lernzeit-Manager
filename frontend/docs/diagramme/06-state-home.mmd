@@ -1,0 +1,55 @@
+flowchart TD
+    subgraph FS["Firestore-Daten"]
+        goals["goals: Goal[]"]
+        sessions["sessions: LearningSession[]"]
+        plans["plans: MonthlyPlan[]"]
+    end
+
+    subgraph TM["Timer"]
+        running["running: boolean"]
+        startedAt["startedAt: Date oder null"]
+        seconds["seconds: number"]
+        topic["sessionTopic: string"]
+    end
+
+    subgraph FM["Formular-Inputs"]
+        newGoal["newGoal: string"]
+        month["month: YYYY-MM"]
+        plannedHours["plannedHours: number"]
+        hoursPerMonth["hoursPerMonth: number"]
+    end
+
+    subgraph MM["Ableitungen via useMemo"]
+        openGoals["openGoals"]
+        doneGoals["doneGoals"]
+        progress["goalsProgress %"]
+        learnedMap["learnedHoursPerMonth"]
+        recent["recentSessions"]
+        currentPlan["currentPlan"]
+    end
+
+    subgraph SM["Stats via useEffect"]
+        todayMin["todayMinutes"]
+        weekMin["weekMinutes"]
+        streak["streak"]
+        inactive["inactiveDays"]
+    end
+
+    goals --> openGoals
+    goals --> doneGoals
+    goals --> progress
+    sessions --> learnedMap
+    sessions --> recent
+    sessions --> todayMin
+    sessions --> weekMin
+    sessions --> streak
+    sessions --> inactive
+    plans --> currentPlan
+    month --> currentPlan
+    running --> seconds
+
+    style FS fill:#dbeafe,stroke:#3b82f6
+    style TM fill:#fee2e2,stroke:#ef4444
+    style FM fill:#f3e8ff,stroke:#9333ea
+    style MM fill:#dcfce7,stroke:#16a34a
+    style SM fill:#fef9c3,stroke:#ca8a04

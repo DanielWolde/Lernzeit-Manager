@@ -1,0 +1,41 @@
+ANLEITUNG – Lernzeit-Manager
+=============================
+
+OPTION 1: App direkt im Browser öffnen (empfohlen, keine Installation nötig)
+-----------------------------------------------------------------------------
+Die App ist online erreichbar unter:
+https://lernzeit-manager-b4af3.web.app
+
+Einfach den Link im Browser aufrufen – fertig.
+
+
+OPTION 2: Lokal auf dem eigenen Computer starten
+-------------------------------------------------
+Voraussetzung: Node.js installieren (kostenlos unter https://nodejs.org)
+              Version 18 oder neuer, LTS-Version empfohlen
+
+Schritte:
+
+1. ZIP-Datei entpacken (falls noch nicht geschehen)
+
+2. Die Datei ".env.local" in den Ordner "frontend" legen
+   (wird separat zugeschickt – enthält die Firebase-Zugangsdaten)
+
+3. Ein Terminal öffnen und in den Ordner "frontend" wechseln:
+      cd Pfad/zum/Ordner/frontend
+
+4. Pakete installieren (nur beim ersten Mal nötig):
+      npm install
+
+5. App starten:
+      npm run dev
+
+6. Browser öffnen und folgende Adresse eingeben:
+      http://localhost:5173
+
+
+HINWEISE
+--------
+- Ohne die Datei ".env.local" kann die App nicht mit der Datenbank verbinden.
+- Die App funktioniert mit jedem modernen Browser (Chrome, Firefox, Edge, Safari).
+- Registrierung ist kostenlos – einfach E-Mail und Passwort eingeben.

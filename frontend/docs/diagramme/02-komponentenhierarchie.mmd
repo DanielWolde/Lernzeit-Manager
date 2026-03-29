@@ -1,0 +1,39 @@
+flowchart TD
+    html["index.html"] --> main["main.tsx"]
+    main --> App["App.tsx"]
+
+    App -->|"user = undefined"| nothing["null - kein Render"]
+    App -->|"user = null"| Login["LoginPage.tsx"]
+    App -->|"user = User"| Home["Home.tsx"]
+
+    Home --> Topbar["Topbar"]
+    Home --> Banners["Fehler- und Inaktivitaets-Banner"]
+    Home --> Stats["Stats-Leiste"]
+    Home --> Grid["Haupt-Grid"]
+
+    Stats --> SC1["StatCard: Streak"]
+    Stats --> SC2["StatCard: Heute"]
+    Stats --> SC3["StatCard: Woche"]
+    Stats --> SC4["StatCard: Offene Ziele"]
+
+    Grid --> Left["Linke Spalte"]
+    Grid --> Mid["Mittlere Spalte"]
+    Grid --> Right["Rechte Spalte"]
+
+    Left --> Timer["Timer-Karte"]
+    Left --> Goals["Lernziele-Karte"]
+
+    Mid --> Plan["Planungs-Karte"]
+    Plan --> MonthDetail["Monatsdetail"]
+    Plan --> Chart["6-Monats-Ueberblick"]
+    Plan --> QuickPlan["6-Monats-Schnellplan"]
+
+    Right --> Sessions["Session-Verlauf"]
+
+    Goals --> Prog1["Progress-Balken"]
+    MonthDetail --> Prog2["Progress-Balken"]
+    Chart --> MonthChart["MonthChart"]
+
+    style App fill:#dbeafe,stroke:#3b82f6
+    style Home fill:#fef3c7,stroke:#d97706
+    style Login fill:#f3e8ff,stroke:#9333ea
